@@ -12,10 +12,16 @@ padding-bottom: 3rem;
 width: 768px;
 margin: 0 auto;
 margin-top: 2rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+position: relative; /* position 속성 추가 */
+
 @media screen and (max-width: 768px) {
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 `;
 
@@ -43,6 +49,12 @@ function NewsList({category}) {
         color="#22B8CF"
         margin={2}
         size={10}
+        style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)'
+          }}
       /></NewsListBlock>;
     }
 
