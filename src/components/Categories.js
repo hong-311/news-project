@@ -6,9 +6,9 @@ import { NavLink } from 'react-router-dom'; //스타일을 꾸며주는 Link태�
 const CategoriesBlock = styled.div`
 display: flex;
 padding: 1rem;
-width: 768px;
+width: 652px;
 margin: 0 auto;
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 652px) {
     width: 100%;
     overflow-x: auto;
 }
@@ -28,11 +28,9 @@ const Category = styled(NavLink)`
 
   &.active {
     font-weight: 600;
-    border-bottom: 2px solid #22b8cf;
-    color: #22b8cf;
-    &:hover {
-      color: #3bc9db;
-    }
+    border-bottom: 2px solid #1A73E8;
+    color: #1A73E8;
+  
   }
 
   & + & {
