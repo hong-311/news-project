@@ -5,9 +5,9 @@ import { NavLink } from 'react-router-dom'; //스타일을 꾸며주는 Link태�
 //스타일 컴포넌트
 const CategoriesBlock = styled.div`
 display: flex;
-padding: 1rem;
+padding-top: 2rem;
 width: 652px;
-margin: 0 auto;
+margin-left: 200px;
 @media screen and (max-width: 652px) {
     width: 100%;
     overflow-x: auto;
@@ -15,11 +15,11 @@ margin: 0 auto;
 `;
 
 const Category = styled(NavLink)`
-  font-size: 1.125rem;
+  font-size: 1rem;
   cursor: pointer;
   white-space: pre;
   text-decoration: none;
-  color: inherit;
+  color: #5F6368;
   padding-bottom: 0.25rem;
 
   &:hover {
@@ -27,9 +27,10 @@ const Category = styled(NavLink)`
   }
 
   &.active {
-    font-weight: 600;
-    border-bottom: 2px solid #1A73E8;
+    font-weight: 400;
+    border-bottom: 3px solid #1A73E8;
     color: #1A73E8;
+    padding-bottom: 0.7rem;
   
   }
 
@@ -42,7 +43,7 @@ const Category = styled(NavLink)`
 const categories = [
     {
       name: 'all',
-      text: '전체보기',
+      text: '전체',
     },
     {
       name: 'business',
