@@ -4,9 +4,9 @@ import styled from 'styled-components';
 //스타일 컴포넌트 생성
 const NewsItemBlock = styled.div`
 display: flex;
-
 .thumbnail {
     margin-left: auto;
+    
     
     img {
         display: block;
@@ -17,19 +17,21 @@ display: flex;
     }
 }
 .contents {
+    margin-right: 1.25rem;
     h2 {
         margin: 0;
         a {
             font-family: 'AppleSDGothicNeoL', sans-serif;
             color: #1A0dab;
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 500;
-            text-decoration: none; /* a 태그의 밑줄 제거 */
+            text-decoration: none; 
             text-align: left;
         }
     }
     p {
-        font-size: 14px;
+        font-size: 1rem;
+        font-family: 'AppleSDGothicNeoL', sans-serif;
         margin: 0;
         line-height: 1.5;
         margin-top: 0.5rem;
@@ -38,7 +40,7 @@ display: flex;
     }
 }
 & + & {
-    margin-top: 3rem;
+    margin-top: 2.1rem;
 }
 `;
 
