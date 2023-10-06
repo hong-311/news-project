@@ -6,26 +6,35 @@ const NewsItemBlock = styled.div`
 display: flex;
 
 .thumbnail {
-    margin-right: 1rem;
+    margin-left: auto;
+    
     img {
         display: block;
-        width: 160px;
-        height: 100px;
+        width: 92px;
+        height: 92px;
         object-fit: cover;
+        border-radius: 10px;
     }
 }
 .contents {
     h2 {
         margin: 0;
         a {
-            color: black;
+            font-family: 'AppleSDGothicNeoL', sans-serif;
+            color: #1A0dab;
+            font-size: 20px;
+            font-weight: 500;
+            text-decoration: none; /* a 태그의 밑줄 제거 */
+            text-align: left;
         }
     }
     p {
+        font-size: 14px;
         margin: 0;
         line-height: 1.5;
         margin-top: 0.5rem;
         white-space: normal;
+        
     }
 }
 & + & {
@@ -34,11 +43,25 @@ display: flex;
 `;
 
 //뉴스 한개한개를 표시할 컴포넌트
-function NewsItem({article}) {
-    const { title, description, url, urlToImage } = article;
+const NewsItem = ({ article }) => {
+    const { title, url, urlToImage } = article;
+    let { description } = article;
+  
+    // description이 2줄을 넘어가면 2줄까지만 자르고 ...을 추가
+    if (description && description.length > 60) {
+      description = description.substring(0, 60) + "...";
+    }
 
     return (
         <NewsItemBlock>
+            {/* urlToImage가 있는 경우 (썸네일) */}
+           
+            <div className="contents">
+                <h2>
+                    <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
+                </h2>
+                <p>{description}</p>
+            </div>
             {
                 urlToImage && (
                 <div className="thumbnail">
@@ -48,12 +71,6 @@ function NewsItem({article}) {
                     </a>
                 </div>)
             }
-            <div className="contents">
-                <h2>
-                    <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
-                </h2>
-                <p>{description}</p>
-            </div>
         </NewsItemBlock>
     );
 }
