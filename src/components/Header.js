@@ -1,23 +1,65 @@
 import React, { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
  
 //스타일컴포넌트
 const HeaderBlock = styled.header`
-    position: fixed; top: 0; left: 0; z-index: 5000;
-    width: 100%; height: 80px; padding: 0 60px; 
+    position: fixed;
+    top: ${(props) => (props.visible ? '0' : '-5px')};
+    width: 100%;
+    height: 100px;
+    padding: 0 30px;
     background: #ffff;
-    display: flex; align-items: center;
+    display: flex;
+    align-items: center;
+    transition: top 0.3s;
 
-    transition: background 0.3s;
-
-    &.active{
-        width: 100%; height: 50px; padding: 0 60px; 
-        background: #ffff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    &.active {
+        top: 0;
+        height: 50px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+            img {
+                width: 86px; 
+                height: 28px;
+                padding-top: 10px;
+                margin-right: 40px;
+            }
+            textarea {
+                height: 30px;
+                line-height: 30px;
+                border: 1px solid #ccc;
+                box-shadow: none;
+            }
     }
+`;
 
+const ContainerBlock = styled.div`
+display: flex;
+align-items: center;
 
+img {
+    width: 92px; 
+    height: 30px;
+    padding-top: 10px;
+    margin-right: 40px;
+}
+
+textarea {
+    width: 680px;
+    height: 45px;
+    margin-right: 10px;
+    border-radius: 25px; 
+    border: 0px solid #ccc; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    resize: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 40px;
+    overflow: hidden;
+
+}
 `;
 
 //header컴포넌트
@@ -47,6 +89,7 @@ function Header() {
         }
     };
 
+    
     const handleInputChange = (e) => {
         setSearchQuery(e.target.value); // 검색어 업데이트
     };
@@ -57,14 +100,22 @@ function Header() {
 
     return (
 
-             <HeaderBlock ref={header}>
+            <HeaderBlock ref={header}>
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={handleInputChange}
-                />
-                <button type="submit">검색</button>
+                <ContainerBlock>
+                    <Link to="/">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/552px-Google_2015_logo.svg.png"
+                            alt="Google Logo"
+                        />
+                    </Link>
+                    <textarea
+                        type="text"
+                        value={searchQuery}
+                        onChange={handleInputChange}
+                    />
+                    <button type="submit">검색</button>
+                </ContainerBlock>
             </form>
         </HeaderBlock>
     )
