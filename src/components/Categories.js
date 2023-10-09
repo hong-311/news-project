@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom'; //스타일을 꾸며주는 Link태그
+import { GrSearch } from "react-icons/gr";
 
 //스타일 컴포넌트
 const CategoriesBlock = styled.div`
 display: flex;
-padding-top: 2rem;
+padding-top: 6rem;
 width: 652px;
-margin-left: 200px;
+margin-left: 180px;
 @media screen and (max-width: 652px) {
     width: 100%;
     overflow-x: auto;
@@ -15,7 +16,7 @@ margin-left: 200px;
 `;
 
 const Category = styled(NavLink)`
-  font-size: 1rem;
+  font-size: 0.875rem;
   cursor: pointer;
   white-space: pre;
   text-decoration: none;
@@ -43,7 +44,11 @@ const Category = styled(NavLink)`
 const categories = [
     {
       name: 'all',
-      text: '전체',
+      text: (
+        <>
+          <GrSearch style={{color: "#5F6368", marginRight: "0.25rem" }} /> 전체
+        </>
+      ),
     },
     {
       name: 'business',
