@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { GrSearch } from 'react-icons/gr';
+
  
 //스타일컴포넌트
 const HeaderBlock = styled.header`
@@ -46,8 +48,8 @@ img {
 }
 
 textarea {
-    width: 680px;
-    height: 45px;
+    width: 690px;
+    height: 40px;
     margin-right: 10px;
     border-radius: 25px; 
     border: 0px solid #ccc; 
@@ -60,6 +62,13 @@ textarea {
     overflow: hidden;
 
 }
+`;
+
+const ButtonBlock = styled.button`
+    font-size: 1.2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 `;
 
 //header컴포넌트
@@ -114,7 +123,16 @@ function Header() {
                         value={searchQuery}
                         onChange={handleInputChange}
                     />
-                    <button type="submit">검색</button>
+                    <ButtonBlock type="submit"><GrSearch /></ButtonBlock>
+                    <span className="material-symbols-outlined" style={{color: "#5F6368", fontSize: "1.5rem", marginLeft: "215px"}}>
+                      settings
+                    </span>
+                    <span className="material-symbols-outlined" style={{color: "#5F6368", fontSize: "1.5rem", marginLeft: "20px"}}>
+                      apps
+                    </span>
+                    <span className="material-symbols-outlined" style={{color: "#5F6368", fontSize: "1.5rem", marginLeft: "20px"}}>
+                      person
+                    </span>
                 </ContainerBlock>
             </form>
         </HeaderBlock>
