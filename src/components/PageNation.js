@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const PaginationBlock = styled.div`
   display: flex;
   list-style: none;
-  padding: 0;
-  margin: 0;
+  justify-content: center;
+  margin: 50px 0px -185px 0px;
 `;
 
 const PageButtonBlock = styled.button`
