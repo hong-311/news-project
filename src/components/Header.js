@@ -71,6 +71,24 @@ const ButtonBlock = styled.button`
     cursor: pointer;
 `;
 
+const IconsBlock = styled.div`
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    top: 50%; // 화면의 세로 중앙에 배치
+    transform: translateY(-50%);
+    right: 100px;
+  
+    @media screen and (max-width: 768px) {
+      right: 10px; 
+    }
+  
+    @media screen and (max-width: 480px) {
+      right: 5px; 
+    }
+  
+`;
+
 //header컴포넌트
 function Header() {
     const [searchQuery, setSearchQuery] = useState(''); // 검색어 상태를 관리
@@ -123,16 +141,36 @@ function Header() {
                         value={searchQuery}
                         onChange={handleInputChange}
                     />
-                    <ButtonBlock type="submit"><GrSearch /></ButtonBlock>
-                    <span className="material-symbols-outlined" style={{color: "#5F6368", fontSize: "1.5rem", marginLeft: "215px"}}>
-                      settings
-                    </span>
-                    <span className="material-symbols-outlined" style={{color: "#5F6368", fontSize: "1.5rem", marginLeft: "20px"}}>
-                      apps
-                    </span>
-                    <span className="material-symbols-outlined" style={{color: "#5F6368", fontSize: "1.5rem", marginLeft: "20px"}}>
-                      person
-                    </span>
+                    <ButtonBlock type="submit"><GrSearch style={{marginTop: "5px"}}/></ButtonBlock>
+                    <IconsBlock>
+                        <span
+                            className="material-symbols-outlined"
+                            style={{
+                                color: '#5F6368',
+                                fontSize: '1.5rem',
+                            }}
+                        >
+                            settings
+                        </span>
+                        <span
+                            className="material-symbols-outlined"
+                            style={{
+                                color: '#5F6368',
+                                fontSize: '1.5rem',
+                            }}
+                        >
+                            apps
+                        </span>
+                        <span
+                            className="material-symbols-outlined"
+                            style={{
+                                color: '#5F6368',
+                                fontSize: '1.5rem',
+                            }}
+                        >
+                            person
+                        </span>
+                    </IconsBlock>
                 </ContainerBlock>
             </form>
         </HeaderBlock>
