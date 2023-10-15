@@ -5,6 +5,7 @@ import axios from 'axios';
 import usePromise from '../libs/usePromise';
 import Pagination from './PageNation';
 
+
 //스타일 컴포넌트 생성
 const NewsListBlock = styled.div`
 box-sizing: border-box;
@@ -29,16 +30,17 @@ margin-top: 2rem;
 //카테고리별 데이터
 //https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=발급키
 function NewsList({category}) {
-    const itemsPerPage = 10; // 한 페이지에 표시할 아이템 수
-    const [currentPage, setCurrentPage] = useState(1);
-
+  const apikey = process.env.REACT_APP_API_KEY;
+  const itemsPerPage = 10; // 한 페이지에 표시할 아이템 수
+  const [currentPage, setCurrentPage] = useState(1);
+    
     //데이터 받아오기 - 로딩, 성공, 실패
     const [loading, response, error] = usePromise(() => {
         //카테고리를 담는 변수
         const query = category === 'all' ? '' : `&category=${category}`;
 
         return axios.get(
-            `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=5c14f62c41a3418d82f80a12321a2729`,
+            `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=${apikey}`,
         );
     },[category]);
 
