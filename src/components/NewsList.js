@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SyncLoader } from "react-spinners";
 import NewsItem from './NewsItem';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -47,7 +48,17 @@ function NewsList({category}) {
     
     //로딩중
     if(loading){
-        return <NewsListBlock><img src="./img/loading.png" alt="페이지 로딩 중" /></NewsListBlock>;
+      return <NewsListBlock><SyncLoader
+      color="#1A73E8"
+      margin={2}
+      size={10}
+      style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)'
+        }}
+    /></NewsListBlock>;
     }
 
     //값이 없을 때
