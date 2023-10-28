@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import NewsList from '../components/NewsList';
 
 //뉴스관련 페이지 처리를 할 컴포넌트
-function NewsPage({searchResults}) {
+function NewsPage() {
     //파라미터 정보담는 변수
     const { category } = useParams();
 
