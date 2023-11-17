@@ -6,7 +6,7 @@ Google을 참고하여 만든 뉴스 뷰어 사이트입니다.
 <br>
 
 ### 🕰 개발 기간
-2023.09 ~ 2023.10
+2023.09 ~
 
 ### ⚙ 개발 환경
 <img src="https://github.com/hong-311/news-project/assets/136770134/405b0940-0a73-4aa7-a364-690bbb526f1f"  width="180" height="100">
